@@ -11,13 +11,7 @@ import Footer from '../../components/Footer/Footer';
 import useObserver from '../../hooks/useObserver';
 
 const Home = () => {
-  const { addElements, observe } = useObserver();
-
-  React.useEffect(() => {
-    console.log(document.querySelectorAll('.anime'));
-    addElements(document.querySelectorAll('.anime'));
-    observe();
-  }, [addElements, observe]);
+  const observe = useObserver()
 
   return (
     <>

@@ -1,32 +1,33 @@
-const elementList = [];
-
-const observer = new IntersectionObserver(
-  (entries) => {
-    const [entry] = entries;
-    entry.target.classList.add('show');
-  },
-  {
+import { useEffect, useState } from 'react';
+  
+  const options = {
     root: null,
     rootMargin: '0px',
-    threshold: 0.2,
+    threshold: 0,
     trackVisibility: true,
     delay: 100,
-  },
-);
-
-const useObserver = () => {
-  function observe() {
-    elementList?.forEach((element) => observer.observe(element));
   }
 
-  function addElements(elements) {
-    elementList.push(...elements);
+export default function useObserver() {
+  const callback = (entries) => {
+    entries.map(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('show')
+    })
   }
 
-  return {
-    observe,
-    addElements,
-  };
-};
-
-export default useObserver;
+  return (
+    useEffect(() => {
+      const elements = document.querySelectorAll('.anime')
+      
+      const observer = new IntersectionObserver(callback, options)
+  
+      elements?.forEach((element) => observer.observe(element))
+  
+      return () => {
+        elements.forEach((element) => {
+          if (element.classList.contains('show')) observer.unobserve(element)
+        })
+      }
+    }, [])
+  );
+}

@@ -11,14 +11,15 @@ const Navbar = () => {
 
   React.useEffect(() => {
     if (menu) {
-      document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
       window.scroll({
         top: 0,
         left: 0,
         behavior: 'smooth',
       });
     } else {
-      document.body.style.overflowY = 'auto';
+      document.documentElement.style.overflowY = 'auto';
+      document.documentElement.style.overflowX = 'hidden';
     }
   }, [menu]);
 
@@ -31,7 +32,7 @@ const Navbar = () => {
 
         if (!entry.isIntersecting) {
           setMenu(false);
-          document.body.style.overflow = 'auto';
+          document.body.style.overflowY = 'auto';
         }
       },
       { threshold: 0.5 },

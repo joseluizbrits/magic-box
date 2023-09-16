@@ -25,6 +25,10 @@ const GlobalStyle = createGlobalStyle`
     scroll-behavior: smooth;
   }
 
+  body {
+    overflow-x: hidden;
+  }
+
   a {
     text-decoration: none;
   }

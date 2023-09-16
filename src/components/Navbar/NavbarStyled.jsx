@@ -187,7 +187,7 @@ export const Hamburguer = styled.button`
       // traço de cima
       &::before {
         box-shadow: 0 -2px 0 0 var(--p1);
-        transform: rotate(-135deg);
+        transform: rotate(-135deg) translateY(1px);
       }
 
       // traço de baixo

@@ -13,8 +13,14 @@ export const Section = styled.section`
   .fold {
     position: absolute;
     top: -136px;
-    left: 0;
     transform: rotate(180deg);
+    
+    transition: 0.3s;
+    left: 200px;
+
+    &.show {
+      left: 0;
+    }
   }
 
   h1 {
@@ -30,6 +36,16 @@ export const Section = styled.section`
     display: flex;
     align-items: center;
     gap: 16px;
+
+    transition: 0.3s;
+    transition-delay: 0.3s;
+    transform: translateY(-100px);
+    opacity: 0;
+
+    &.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
     &::after {
       content: '';
@@ -56,15 +72,31 @@ export const Section = styled.section`
     background: var(--p4);
     display: flex;
     flex-direction: column;
+
     transition: 0.1s;
+    transform: translateY(-100px);
+    opacity: 0;
+
+    &.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    
+    &.plan-active {
+      height: 100%;
+    }
 
     &:hover {
       filter: brightness(125%);
     }
+  }
 
-    &.plan-active {
-      height: 100%;
-    }
+  .box .plan#semestral.show {
+    transition-delay: 0.4s;
+  }
+
+  .box .plan#trimestral.show {
+    transition-delay: 0.2s;
   }
 
   .box .plan .name {
@@ -260,6 +292,14 @@ export const Section = styled.section`
   @media (max-width: 760px) {
     h1::after {
       display: none;
+    }
+
+    .box .plan#semestral.show {
+      transition-delay: 0s;
+    }
+
+    .box .plan#trimestral.show {
+      transition-delay: 0s;
     }
   }
 

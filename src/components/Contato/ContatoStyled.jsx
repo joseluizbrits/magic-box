@@ -29,6 +29,16 @@ export const Section = styled.section`
     flex-direction: column;
     justify-content: center;
     gap: 8px;
+
+    transition: 0.3s;
+    transition-delay: 0.6s;
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+
+  &.show .content .title {
+    transform: translateY(0);
+    opacity: 1;
   }
 
   .content .title h1 {
@@ -61,8 +71,14 @@ export const Section = styled.section`
   form {
     background: var(--p8);
     border-radius: 3px;
+
     transition: 0.3s;
-    opacity: 0.8;
+    transform: scale(0);
+
+    &.show {
+      transform: scale(1);
+      opacity: 0.8;
+    }
 
     &:hover {
       opacity: 1;

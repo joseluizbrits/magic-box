@@ -55,7 +55,7 @@ const Gallery = ({ imgs, setImgs }) => {
   }
 
   return (
-    <Container>
+    <Container className='anime'>
       <div
         className={`gallery ${direction}`}
         onClick={() => setZoom(true)}
@@ -68,7 +68,7 @@ const Gallery = ({ imgs, setImgs }) => {
           <img id={img.id} key={img.id} src={img.url} />
         ))}
       </div>
-      <div className="button-group">
+      <div className="button-group anime">
         <button id="btn-left" onClick={handleClick}></button>
         <button id="btn-right" onClick={handleClick}></button>
       </div>

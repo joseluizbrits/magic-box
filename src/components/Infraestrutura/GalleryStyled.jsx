@@ -7,6 +7,13 @@ export const Container = styled.div`
   align-items: center;
   position: relative;
 
+  transition: .3s;
+  opacity: 0;
+
+  &.show {
+    opacity: 1;
+  }
+
   .gallery.right {
     display: grid;
     align-items: center;
@@ -172,6 +179,13 @@ export const Container = styled.div`
     position: absolute;
     bottom: -36px;
     right: -200px;
+
+    transition: 0.3s;
+    transform: scale(0);
+
+    &.show {
+      transform: scale(1);
+    }
   }
 
   .button-group button {

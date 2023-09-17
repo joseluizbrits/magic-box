@@ -160,19 +160,18 @@ export const Section = styled.section`
     pointer-events: none;
   }
 
-  .grid.show {
-    #img1 {
-      opacity: 1;
-    }
+   #img1.show {
+    opacity: 1;
+  }
 
-    #img2 {
-      opacity: 1;
-      transition-delay: 0.3s;
-    }
-    #img3 {
-      opacity: 1;
-      transition-delay: 0.6s;
-    }
+  #img2.show {
+    opacity: 1;
+    transition-delay: 0.2s;
+  }
+    
+  #img3.show {
+    opacity: 1;
+    transition-delay: 0.4s;
   }
 
   /* +-+-+-+-+ RESPONSIVE +-+-+-+-+ */
@@ -224,6 +223,14 @@ export const Section = styled.section`
     .grid {
       flex-direction: column;
       aspect-ratio: initial;
+
+      #img2.show {
+        transition-delay: 0s;
+      }
+
+      #img3.show {
+        transition-delay: 0s;
+      }
     }
 
     .grid .img-box {

@@ -38,8 +38,9 @@ const plans = [
 ];
 
 function Planos() {
-  const [planActive, setPlanActive] = React.useState('');
+  const [planActive, setPlanActive] = React.useState(null);
   const [itemActive, setItemActive] = React.useState(null);
+  const [show, setShow] = React.useState('')
 
   function handleClick(event) {
     const itemId = event.currentTarget.id;
@@ -53,7 +54,10 @@ function Planos() {
     } else {
       setItemActive(itemId);
     }
+
+    if (!show) setShow('show')
   }
+
   return (
     <Section id="planos">
       <Fold className="fold anime" />
@@ -64,7 +68,7 @@ function Planos() {
             key={plan.id}
             id={plan.name}
             className={
-              plan.name === planActive ? 'plan plan-active anime' : 'plan anime'
+              plan.name === planActive ? `plan plan-active anime ${show}` : `plan anime ${show}`
             }
           >
             <div className="name">

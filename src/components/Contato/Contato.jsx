@@ -29,7 +29,7 @@ function Contato() {
           's_YA3z6mo4qOe0thA',
         )
         .then(
-          (response) => {
+          () => {
             setSuccess(true);
             name.setValue('');
             email.setValue('');

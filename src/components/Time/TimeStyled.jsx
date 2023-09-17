@@ -16,6 +16,15 @@ export const Section = styled.section`
     align-items: center;
     padding-top: 40px;
     padding-bottom: 120px;
+
+    transition: 0.3s;
+    transform: translateX(200px);
+    opacity: 0;
+
+    &.show {
+      transform: translateX(0);
+      opacity: 1;
+    }
   }
 
   h1 #text-1 {
@@ -67,6 +76,9 @@ export const Section = styled.section`
     cursor: pointer;
     overflow: hidden;
 
+    transition: 0.3s;
+    opacity: 0;
+
     &::before {
       content: '';
       display: block;
@@ -78,6 +90,23 @@ export const Section = styled.section`
       z-index: 1;
       transition: 0.3s;
     }
+  }
+
+  .team .list .item.show:nth-child(1),
+  .team .list .item.show:nth-child(4) {
+    opacity: 1;
+  }
+
+  .team .list .item.show:nth-child(2),
+  .team .list .item.show:nth-child(5) {
+    transition-delay: 0.2s;
+    opacity: 1;
+  }
+
+  .team .list .item.show:nth-child(3),
+  .team .list .item.show:nth-child(6) {
+    transition-delay: 0.4s;
+    opacity: 1;
   }
 
   .team .list .item h2 {
@@ -167,6 +196,16 @@ export const Section = styled.section`
       #text-2::before {
         display: none;
       }
+    }
+
+    .team .list .item.show:nth-child(2),
+    .team .list .item.show:nth-child(5) {
+     transition-delay: 0s;     
+    }
+
+    .team .list .item.show:nth-child(3),
+    .team .list .item.show:nth-child(6) {
+      transition-delay: 0s;
     }
   }
 

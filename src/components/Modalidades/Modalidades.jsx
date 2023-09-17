@@ -35,9 +35,9 @@ function Modalidades() {
         <span id="text-1">Conheça nossas</span>{' '}
         <span id="text-2">modalidades</span>
       </h1>
-      <ul className="grid anime">
+      <ul className="grid">
         {imgs.map((img) => (
-          <li key={img.id} id={`img${img.id}`} className="img-box">
+          <li key={img.id} id={`img${img.id}`} className="img-box anime">
             <img src={img.url} alt={img.desc} />
             <h2>{img.name}</h2>
             <p>{img.text}</p>

@@ -1,7 +1,7 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Container } from './FooterStyled';
-import { ReactComponent as Logo } from '../../assets/icons/box.svg';
+import React from "react";
+import { Link } from "react-router-dom";
+import { Container } from "./FooterStyled";
+import { ReactComponent as Logo } from "../../assets/icons/box.svg";
 
 function Footer() {
   return (
@@ -53,8 +53,9 @@ function Footer() {
           <p>Rua Ali Perto, 255 - Barra da Tijuca, RJ</p>
         </div>
         <p className="copyright">
-          © Copyright 2023 - 2024 | Magic Box | Todos os Direitos Reservados |
-          Criado por BRITS
+          © Copyright {new Date().getFullYear()} -{" "}
+          {new Date().getFullYear() + 1} | Magic Box | Todos os Direitos
+          Reservados | Criado por BRITS
         </p>
       </div>
     </Container>

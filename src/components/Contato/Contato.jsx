@@ -1,14 +1,14 @@
-import React from 'react';
-import { Section } from './ContatoStyled';
-import { Link } from 'react-router-dom';
-import Field from './Field';
-import useForm from '../../Hooks/useForm';
-import emailjs from '@emailjs/browser';
+import React from "react";
+import { Section } from "./ContatoStyled";
+import { Link } from "react-router-dom";
+import Field from "./Field";
+import useForm from "../../Hooks/useForm";
+import emailjs from "@emailjs/browser";
 
 function Contato() {
   const [success, setSuccess] = React.useState(null);
   const name = useForm(false);
-  const email = useForm('email');
+  const email = useForm("email");
   const message = useForm();
 
   function handleSubmit(event) {
@@ -23,25 +23,25 @@ function Contato() {
 
       emailjs
         .send(
-          'service_ovc51pi',
-          'template_ra9q7ua',
+          "service_ovc51pi",
+          "template_ra9q7ua",
           templateParams,
-          's_YA3z6mo4qOe0thA',
+          "s_YA3z6mo4qOe0thA"
         )
         .then(
           () => {
             setSuccess(true);
-            name.setValue('');
-            email.setValue('');
-            message.setValue('');
+            name.setValue("");
+            email.setValue("");
+            message.setValue("");
           },
           (err) => {
-            console.log('Erro ao enviar o email');
+            console.log("Erro ao enviar o email");
             console.log(err);
-            name.setValue('');
-            email.setValue('');
-            message.setValue('');
-          },
+            name.setValue("");
+            email.setValue("");
+            message.setValue("");
+          }
         );
     }
   }

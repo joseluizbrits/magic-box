@@ -1,25 +1,25 @@
-import React from 'react';
-import { Header, Menu, Hamburguer } from './NavbarStyled';
-import { Link } from 'react-router-dom';
-import { ReactComponent as Logo } from '../../assets/icons/box.svg';
-import useMedia from '../../hooks/useMedia';
+import React from "react";
+import { Header, Menu, Hamburguer } from "./NavbarStyled";
+import { Link } from "react-router-dom";
+import { ReactComponent as Logo } from "../../assets/icons/box.svg";
+import useMedia from "../../hooks/useMedia";
 
 const Navbar = () => {
   const [menu, setMenu] = React.useState(false);
-  const match = useMedia('(max-width: 728px)');
+  const match = useMedia("(max-width: 728px)");
   const menuRef = React.useRef();
 
   React.useEffect(() => {
     if (menu) {
-      document.documentElement.style.overflow = 'hidden';
+      document.documentElement.style.overflow = "hidden";
       window.scroll({
         top: 0,
         left: 0,
-        behavior: 'smooth',
+        behavior: "smooth",
       });
     } else {
-      document.documentElement.style.overflowY = 'auto';
-      document.documentElement.style.overflowX = 'hidden';
+      document.documentElement.style.overflowY = "auto";
+      document.documentElement.style.overflowX = "hidden";
     }
   }, [menu]);
 
@@ -32,10 +32,10 @@ const Navbar = () => {
 
         if (!entry.isIntersecting) {
           setMenu(false);
-          document.body.style.overflowY = 'auto';
+          document.body.style.overflowY = "auto";
         }
       },
-      { threshold: 0.5 },
+      { threshold: 0.5 }
     );
 
     if (menuRef.current) observer.observe(menuRef.current);
@@ -46,14 +46,14 @@ const Navbar = () => {
   return (
     <Header>
       <div className="container">
-        <Link to="/">
+        <Link to="/magic-box">
           magic
           <Logo />
           box
         </Link>
         <Menu
           ref={menuRef}
-          className={match ? `mobile ${menu ? 'active' : ''}` : ''}
+          className={match ? `mobile ${menu ? "active" : ""}` : ""}
         >
           <ul>
             <a href="#planos">Planos</a>
@@ -71,15 +71,15 @@ const Navbar = () => {
               Contato
             </a>
           </ul>
-          <button id="btn" className={match ? 'mobile' : ''}>
+          <button id="btn" className={match ? "mobile" : ""}>
             Matricule-se
           </button>
         </Menu>
         <Hamburguer
-          className={match ? 'mobile' : ''}
+          className={match ? "mobile" : ""}
           onClick={() => setMenu(!menu)}
         >
-          <span id="hamburguer" className={menu ? 'active' : ''}></span>
+          <span id="hamburguer" className={menu ? "active" : ""}></span>
         </Hamburguer>
       </div>
     </Header>
